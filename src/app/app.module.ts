@@ -7,6 +7,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ApiServiceProvider } from '../providers/api-service/api-service';
+import { File } from '@ionic-native/file';
+import { FileOpener } from '@ionic-native/file-opener';
+import { HttpModule } from '@angular/http';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,7 @@ import { ApiServiceProvider } from '../providers/api-service/api-service';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -23,6 +28,9 @@ import { ApiServiceProvider } from '../providers/api-service/api-service';
     HomePage
   ],
   providers: [
+    File,
+    InAppBrowser,
+    FileOpener,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
